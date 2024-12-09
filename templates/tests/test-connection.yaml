@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: "{{ .Release.Name }}-connection-test"
+    annotations:
+      "helm.sh/hook": test
+spec:
+    containers:
+    - name: testin-container
+      image: busybox
+      command: ['sh', '-c', 'echo $(nc -z my-wordpress-mariadb.default.svc.cluster.local 3306 && echo Connection Successful || echo Connection Failed && exit 1)']
+    restartPolicy: Never
+    

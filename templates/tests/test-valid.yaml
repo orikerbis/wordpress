@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ .Release.Name }}-resource-validation"
+  labels:
+    helm.sh/hook: test
+spec:
+  serviceAccountName: my-wordpress
+  containers:
+    - name: resource-validation
+      image: bitnami/kubectl
+      command: ['sh', '-c', 'kubectl get service {{ .Release.Name }} && echo Service Exists || exit 1']
+  restartPolicy: Never
