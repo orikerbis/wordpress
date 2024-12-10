@@ -1283,7 +1283,7 @@ mariadb:
 externalDatabase:
   ## @param externalDatabase.host External Database server host
   ##
-  host: localhost
+  host: "127.0.0.1"
   ## @param externalDatabase.port External Database server port
   ##
   port: 3306
