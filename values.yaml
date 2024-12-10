@@ -308,7 +308,7 @@ hostAliases:
   ##
   - ip: "127.0.0.1"
     hostnames:
-      - "status.localhost"
+      - "status."127.0.0.1""
 ## @param extraVolumes Optionally specify extra list of additional volumes for WordPress pods
 ##
 extraVolumes: []
@@ -1354,7 +1354,7 @@ memcached:
 externalCache:
   ## @param externalCache.host External cache server host
   ##
-  host: localhost
+  host: "127.0.0.1"
   ## @param externalCache.port External cache server port
   ##
   port: 11211
